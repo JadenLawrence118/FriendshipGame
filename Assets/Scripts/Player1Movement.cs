@@ -5,29 +5,22 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using TMPro;
 
-public class PlayerMovement : MonoBehaviour
+public class Player1Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1.0f;
     [SerializeField] private float jumpHeight = 5.0f;
 
     private Animator animator;
     private bool grounded = true;
-    private Vector2 respawnPoint;
-
-    private bool killable = true;
-
-    private int deaths = 0;
-    [SerializeField] private TextMeshProUGUI deathCounter;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        respawnPoint = transform.position;
     }
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis("Horizontal1");
 
         if (horizontalInput != 0)
         {
@@ -53,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // left/right
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis("Horizontal1");
 
         Vector2 direction = new Vector2(horizontalInput, 0);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -63,46 +56,28 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("yVelocity", rb.velocity.y);
 
         // jumping
-        float jumpInput = Input.GetAxis("Jump");
+        float jumpInput = Input.GetAxis("Jump1");
 
         if (grounded && jumpInput > 0)
         {
             rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Platform" || collision.tag == "Ground")
+        if (collision.tag == "Ground")
         {
             animator.SetBool("grounded", true);
             grounded = true;
-            killable = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Platform" || collision.tag == "Ground")
+        if (collision.tag == "Ground")
         {
             animator.SetBool("grounded", false);
             grounded = false;
-        }
-    }
-
-    public void SetRespawn(Vector2 location)
-    {
-        respawnPoint = location;
-    }
-
-    public void Die()
-    {
-        if (killable)
-        {
-            transform.position = respawnPoint;
-            deaths++;
-            deathCounter.text = "Deaths: " + deaths.ToString();
-            killable = false;
         }
     }
 }
