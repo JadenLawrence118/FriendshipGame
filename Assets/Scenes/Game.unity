@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_MinimumFOV: 3
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
-  m_MaximumOrthoSize: 5000
+  m_MaximumOrthoSize: 10
 --- !u!114 &951432242
 MonoBehaviour:
   m_ObjectHideFlags: 3
