@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressButtons : MonoBehaviour
 {
-    [SerializeField] GameObject interactable;
+    [SerializeField] GameObject[] interactables;
     public int pressing = 0;
     private bool used = false;
 
@@ -17,15 +17,21 @@ public class PressButtons : MonoBehaviour
         {
             if (pairButton == null)
             {
-                interactable.GetComponent<Interactables>().activated++;
-                used = true;
+                for (int i = 0; i < interactables.Length; i++)
+                {
+                    interactables[i].GetComponent<Interactables>().activated++;
+                    used = true;
+                }
             }
             else
             {
-                if (pairButton.GetComponent<PressButtons>().pressing > 0)
+                for (int i = 0; i < interactables.Length; i++)
                 {
-                    interactable.GetComponent<Interactables>().activated++;
-                    used = true;
+                    if (pairButton.GetComponent<PressButtons>().pressing > 0)
+                    {
+                        interactables[i].GetComponent<Interactables>().activated++;
+                        used = true;
+                    }
                 }
             }
             pressing++;
