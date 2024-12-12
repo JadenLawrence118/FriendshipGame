@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Interactables : MonoBehaviour
 {
-    public bool activated = false;
+    public int activated = 0;
 }

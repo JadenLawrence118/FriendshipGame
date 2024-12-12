@@ -10,21 +10,23 @@ public class HoldButtons : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        pressing++;
-
-        if (pressing > 0)
+        if (!collision.isTrigger)
         {
-            interactable.GetComponent<Interactables>().activated = true;
+            pressing++;
+
+            if (pressing > 0)
+            {
+                interactable.GetComponent<Interactables>().activated++;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        pressing--;
-
-        if (pressing <= 0)
+        if (!collision.isTrigger)
         {
-            interactable.GetComponent<Interactables>().activated = false;
+            pressing--;
+            interactable.GetComponent<Interactables>().activated--;
         }
     }
 }

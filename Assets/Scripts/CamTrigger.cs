@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class CamTrigger : MonoBehaviour
 {
-    private bool p1In = false;
-    private bool p2In = false;
+    public bool p1In = false;
+    public bool p2In = false;
+
+    [SerializeField] private GameObject turnBlockOn;
+    [SerializeField] private GameObject turnBlockOff;
 
     [SerializeField] CinemachineVirtualCamera TransitionFrom;
     [SerializeField] CinemachineVirtualCamera TransitionTo;
@@ -20,6 +23,11 @@ public class CamTrigger : MonoBehaviour
             {
                 TransitionFrom.Priority = 0;
                 TransitionTo.Priority = 1;
+                if (turnBlockOff != null)
+                {
+                    turnBlockOn.GetComponent<Collider2D>().enabled = true;
+                    turnBlockOff.GetComponent<Collider2D>().enabled = false;
+                }
             }
         }
         else if (collision.tag == "Player2")
@@ -29,6 +37,11 @@ public class CamTrigger : MonoBehaviour
             {
                 TransitionFrom.Priority = 0;
                 TransitionTo.Priority = 1;
+                if (turnBlockOff != null)
+                {
+                    turnBlockOn.GetComponent<Collider2D>().enabled = true;
+                    turnBlockOff.GetComponent<Collider2D>().enabled = false;
+                }
             }
         }
     }

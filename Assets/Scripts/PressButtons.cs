@@ -17,14 +17,14 @@ public class PressButtons : MonoBehaviour
         {
             if (pairButton == null)
             {
-                interactable.GetComponent<Interactables>().activated = true;
+                interactable.GetComponent<Interactables>().activated++;
                 used = true;
             }
             else
             {
                 if (pairButton.GetComponent<PressButtons>().pressing > 0)
                 {
-                    interactable.GetComponent<Interactables>().activated = true;
+                    interactable.GetComponent<Interactables>().activated++;
                     used = true;
                 }
             }
