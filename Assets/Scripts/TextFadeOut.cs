@@ -13,7 +13,7 @@ public class TextFadeOut : MonoBehaviour
             if (GetComponent<TextMeshProUGUI>().material.color.a < 246)
             {
                 Color newColour = GetComponent<TextMeshProUGUI>().color;
-                newColour.a -= 0.001f;
+                newColour.a -= fadeSpeed;
                 GetComponent<TextMeshProUGUI>().color = newColour;
             }
         }

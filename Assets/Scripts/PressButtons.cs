@@ -13,33 +13,43 @@ public class PressButtons : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!used)
+        if (!collision.isTrigger)
         {
-            if (pairButton == null)
+            pressing++;
+            if (pressing <= 1 && !used)
             {
                 for (int i = 0; i < interactables.Length; i++)
                 {
                     interactables[i].GetComponent<Interactables>().activated++;
+                }
+
+                if (pairButton == null)
+                {
                     used = true;
                 }
-            }
-            else
-            {
-                for (int i = 0; i < interactables.Length; i++)
+                else
                 {
                     if (pairButton.GetComponent<PressButtons>().pressing > 0)
                     {
-                        interactables[i].GetComponent<Interactables>().activated++;
                         used = true;
                     }
                 }
             }
-            pressing++;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        pressing--;
+        if (!collision.isTrigger)
+        {
+            pressing--;
+            if (pressing <= 0)
+            {
+                for (int i = 0; i < interactables.Length; i++)
+                {
+                    interactables[i].GetComponent<Interactables>().activated--;
+                }
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ public class Doors : MonoBehaviour
 {
     private void Update()
     {
-        if (gameObject.GetComponent<Interactables>().activated > 0)
+        if (gameObject.GetComponent<Interactables>().activated >= gameObject.GetComponent<Interactables>().activeNeeded)
         {
             gameObject.GetComponent<Collider2D>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
