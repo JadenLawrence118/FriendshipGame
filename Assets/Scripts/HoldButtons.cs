@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HoldButtons : MonoBehaviour
 {
-    [SerializeField] GameObject interactable;
+    [SerializeField] GameObject[] interactables;
 
     public int pressing = 0;
 
@@ -16,7 +16,10 @@ public class HoldButtons : MonoBehaviour
 
             if (pressing > 0)
             {
-                interactable.GetComponent<Interactables>().activated++;
+                for (int i = 0; i < interactables.Length; i++)
+                {
+                    interactables[i].GetComponent<Interactables>().activated++;
+                }
             }
         }
     }
@@ -26,7 +29,10 @@ public class HoldButtons : MonoBehaviour
         if (!collision.isTrigger)
         {
             pressing--;
-            interactable.GetComponent<Interactables>().activated--;
+            for (int i = 0; i < interactables.Length; i++)
+            {
+                interactables[i].GetComponent<Interactables>().activated--;
+            }
         }
     }
 }
