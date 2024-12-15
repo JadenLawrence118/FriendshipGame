@@ -1292,8 +1292,8 @@ Transform:
   - {fileID: 1968480545}
   - {fileID: 2070249218}
   - {fileID: 1556223164}
-  - {fileID: 2062061730}
   - {fileID: 2000026388}
+  - {fileID: 2062061730}
   - {fileID: 862631539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1917,7 +1917,7 @@ PrefabInstance:
       objectReference: {fileID: 518453025}
     - target: {fileID: 6831300033304828015, guid: 56342d62882c9234cbeb0b21d4c1d4dc, type: 3}
       propertyPath: m_Name
-      value: Button (1)
+      value: Button1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49014,7 +49014,7 @@ PrefabInstance:
       objectReference: {fileID: 518453025}
     - target: {fileID: 6831300033304828015, guid: 56342d62882c9234cbeb0b21d4c1d4dc, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

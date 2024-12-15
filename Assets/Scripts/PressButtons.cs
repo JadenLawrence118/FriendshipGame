@@ -6,7 +6,7 @@ public class PressButtons : MonoBehaviour
 {
     [SerializeField] GameObject[] interactables;
     public int pressing = 0;
-    private bool used = false;
+    public bool used = false;
 
     [Header("Add second button to make these buttons need to be\npushed simultaneously")] 
     [SerializeField] GameObject pairButton;
@@ -26,12 +26,14 @@ public class PressButtons : MonoBehaviour
                 if (pairButton == null)
                 {
                     used = true;
+                    pairButton.GetComponent<PressButtons>().used = true;
                 }
                 else
                 {
                     if (pairButton.GetComponent<PressButtons>().pressing > 0)
                     {
                         used = true;
+                        pairButton.GetComponent<PressButtons>().used = true;
                     }
                 }
             }
@@ -43,7 +45,7 @@ public class PressButtons : MonoBehaviour
         if (!collision.isTrigger)
         {
             pressing--;
-            if (pressing <= 0)
+            if (pressing <= 0 && !used)
             {
                 for (int i = 0; i < interactables.Length; i++)
                 {
