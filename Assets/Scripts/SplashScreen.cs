@@ -28,7 +28,7 @@ public class SplashScreen : MonoBehaviour
     void Update()
     {
         // changes alpha value of logos
-        if (UWELogo.material.color.a < 246)
+        if (UWELogo.color.a < 246)
         {
             Color newColour = UWELogo.color;
             newColour.a += 0.001f;
