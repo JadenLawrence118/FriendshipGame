@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
+    private bool startClosed = false;
+
+    private void Awake()
+    {
+        if (gameObject.GetComponent<Collider2D>().enabled)
+        {
+            startClosed = true;
+        }
+    }
     private void Update()
     {
         if (gameObject.GetComponent<Interactables>().activated >= gameObject.GetComponent<Interactables>().activeNeeded)
         {
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<Collider2D>().enabled = !startClosed;
+            gameObject.GetComponent<SpriteRenderer>().enabled = !startClosed;
         }
         else
         {
-            gameObject.GetComponent<Collider2D>().enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<Collider2D>().enabled = startClosed;
+            gameObject.GetComponent<SpriteRenderer>().enabled = startClosed;
         }
     }
 }
