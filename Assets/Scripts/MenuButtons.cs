@@ -17,6 +17,18 @@ public class MenuButtons : MonoBehaviour
     }
     public void BackHome()
     {
+        Destroy(GameObject.FindGameObjectWithTag("GameController"));
         SceneManager.LoadScene(1);
+    }
+    public void Resume()
+    {
+        GameObject.Find("PauseMenu").SetActive(false);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Globals>().paused = false;
+        Time.timeScale = 1.0f;
+    }
+    public void ResetPuzzle()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(3);
     }
 }

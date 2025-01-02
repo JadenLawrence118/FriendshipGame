@@ -13,15 +13,26 @@ public class Player1Movement : MonoBehaviour
     private Animator animator;
     private bool grounded = true;
 
+    private Globals globals;
+
+    private GameObject pauseMenu;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
+        globals = GameObject.FindGameObjectWithTag("GameController").GetComponent<Globals>();
+
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        pauseMenu.SetActive(false);
+        globals.paused = false;
     }
 
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal1");
 
+        // animations
         if (horizontalInput != 0)
         {
             animator.SetBool("moving", true);
@@ -33,7 +44,6 @@ public class Player1Movement : MonoBehaviour
 
 
         // left/right
-
         if (horizontalInput < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
@@ -41,6 +51,23 @@ public class Player1Movement : MonoBehaviour
         else if (horizontalInput > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        // pausing
+        if (Input.GetKeyUp("escape"))
+        {
+            if (globals.paused)
+            {
+                Time.timeScale = 1.0f;
+                globals.paused = false;
+                pauseMenu.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 0f;
+                globals.paused = true;
+                pauseMenu.SetActive(true);
+            }
         }
     }
     private void FixedUpdate()
