@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5468459752264059053}
   - component: {fileID: 2509392553107344007}
   - component: {fileID: 303673105755377695}
+  - component: {fileID: 8253089544407458149}
   m_Layer: 0
   m_Name: EndTrigger
   m_TagString: Untagged
@@ -74,15 +75,15 @@ SpriteRenderer:
   m_SortingLayerID: 1625967797
   m_SortingLayer: -2
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: e575005021fc0b54dbd97baeac779284, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.69411767}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 3.7943597, y: 50}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &303673105755377695
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.8125, y: 49.921593}
   m_EdgeRadius: 0
+--- !u!114 &8253089544407458149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652227435423826134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3116c51cf55be6945a8fe1d0df6cd8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -26,7 +26,6 @@ public class PressButtons : MonoBehaviour
                 if (pairButton == null)
                 {
                     used = true;
-                    pairButton.GetComponent<PressButtons>().used = true;
                 }
                 else
                 {
