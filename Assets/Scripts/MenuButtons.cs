@@ -20,6 +20,10 @@ public class MenuButtons : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("GameController"));
         SceneManager.LoadScene(1);
     }
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene(5);
+    }
     public void Resume()
     {
         GameObject.Find("PauseMenu").SetActive(false);
