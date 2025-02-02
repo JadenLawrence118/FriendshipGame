@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c67dd7f0c38689848903e1c2ee2db563, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7cfdb75ebcb78d343aef17261d82ee1c, type: 3}
   m_Color: {r: 1, g: 0.9607843, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   interactables: []
   pressing: 0
   used: 0
-  downSprite: {fileID: 21300000, guid: 58a0e3d6317c61c41b2c09dce558e8ec, type: 3}
+  downSprite: {fileID: 21300000, guid: 276a42978684e0b46abb81840881c2dc, type: 3}
   pairButton: {fileID: 0}
 --- !u!58 &4426533599822903448
 CircleCollider2D:

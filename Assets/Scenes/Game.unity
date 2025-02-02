@@ -89689,11 +89689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3004988644545000313, guid: ee088bced725a0c4da80196ca7034591, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -860
+      value: -813
       objectReference: {fileID: 0}
     - target: {fileID: 3004988644545000313, guid: ee088bced725a0c4da80196ca7034591, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -515
+      value: -374
       objectReference: {fileID: 0}
     - target: {fileID: 3004988644545000313, guid: ee088bced725a0c4da80196ca7034591, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -89709,7 +89709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6382860205219638745, guid: ee088bced725a0c4da80196ca7034591, type: 3}
       propertyPath: m_text
-      value: Some buttons need to be pushed at the same time...
+      value: 'Buttons activate obects of their corresponding colour
+
+
+        Some
+        buttons need to be pushed at the same time...'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
