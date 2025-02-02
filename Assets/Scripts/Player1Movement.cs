@@ -17,6 +17,8 @@ public class Player1Movement : MonoBehaviour
 
     private GameObject pauseMenu;
 
+    public bool stunned = false;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -78,7 +80,10 @@ public class Player1Movement : MonoBehaviour
         Vector2 direction = new Vector2(horizontalInput, 0);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        rb.velocity = new Vector2(direction.x * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        if (!stunned)
+        {
+            rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+        }
 
         animator.SetFloat("yVelocity", rb.velocity.y);
 
@@ -96,6 +101,11 @@ public class Player1Movement : MonoBehaviour
         {
             animator.SetBool("grounded", true);
             grounded = true;
+            if (stunned) 
+            {
+                stunned = false;
+                GetComponent<CapsuleCollider2D>().enabled = true;
+            }
         }
     }
 
