@@ -14,7 +14,7 @@ public class Players : MonoBehaviour
     private bool killable = true;
 
     public float knockbackX = 5;
-    public float knockbackY = 10;
+    public float knockbackY = 0;
 
 
     private void Awake()
@@ -46,7 +46,6 @@ public class Players : MonoBehaviour
         // stun and knockback when getting jumped on
         if (collision == GameObject.FindGameObjectWithTag("Player1").GetComponent<BoxCollider2D>() || collision == GameObject.FindGameObjectWithTag("Player2").GetComponent<BoxCollider2D>()) 
         {
-            print(Convert.ToInt32(-100 * Convert.ToInt32(collision.gameObject.GetComponent<SpriteRenderer>().flipX)));
             if (collision.gameObject == GameObject.FindGameObjectWithTag("Player1"))
             {
                 GetComponent<Player2Movement>().stunned = true;
