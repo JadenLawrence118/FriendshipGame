@@ -28,10 +28,20 @@ public class Player2Movement : MonoBehaviour
         if (horizontalInput != 0)
         {
             animator.SetBool("moving", true);
+
+            if (grounded)
+            {
+                GetComponent<AudioSource>().enabled = true;
+            }
+            else
+            {
+                GetComponent<AudioSource>().enabled = false;
+            }
         }
         else
         {
             animator.SetBool("moving", false);
+            GetComponent<AudioSource>().enabled = false;
         }
 
 
