@@ -15,6 +15,11 @@ public class Player2Movement : MonoBehaviour
 
     public bool stunned = false;
 
+    [SerializeField] AudioSource footstepsAudio;
+
+    [SerializeField] AudioSource jumpAudio;
+
+    [SerializeField] AudioSource landAudio;
 
     private void Awake()
     {
@@ -77,12 +82,14 @@ public class Player2Movement : MonoBehaviour
         if (grounded && jumpInput > 0)
         {
             rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+            jumpAudio.Play();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ground")
         {
+            landAudio.Play();
             animator.SetBool("grounded", true);
             grounded = true;
             if (stunned)

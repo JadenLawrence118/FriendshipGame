@@ -19,6 +19,12 @@ public class Player1Movement : MonoBehaviour
 
     public bool stunned = false;
 
+    [SerializeField] AudioSource footstepsAudio;
+
+    [SerializeField] AudioSource jumpAudio;
+
+    [SerializeField] AudioSource landAudio;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -41,17 +47,17 @@ public class Player1Movement : MonoBehaviour
             
             if (grounded)
             {
-                GetComponent<AudioSource>().enabled = true;
+                footstepsAudio.enabled = true;
             }
             else
             {
-                GetComponent<AudioSource>().enabled = false;
+                footstepsAudio.enabled = false;
             }
         }
         else
         {
             animator.SetBool("moving", false);
-            GetComponent<AudioSource>().enabled = false;
+            footstepsAudio.enabled = false;
         }
 
 
@@ -103,12 +109,14 @@ public class Player1Movement : MonoBehaviour
         if (grounded && jumpInput > 0)
         {
             rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+            jumpAudio.Play();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ground")
         {
+            landAudio.Play();
             animator.SetBool("grounded", true);
             grounded = true;
             if (stunned) 
