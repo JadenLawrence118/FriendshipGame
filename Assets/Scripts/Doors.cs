@@ -6,6 +6,8 @@ public class Doors : MonoBehaviour
 {
     private bool startClosed = false;
 
+    private bool soundPlayed = false;
+
     private void Awake()
     {
         if (gameObject.GetComponent<Collider2D>().enabled)
@@ -19,11 +21,18 @@ public class Doors : MonoBehaviour
         {
             gameObject.GetComponent<Collider2D>().enabled = !startClosed;
             gameObject.GetComponent<SpriteRenderer>().enabled = !startClosed;
+
+            if (!soundPlayed)
+            {
+                soundPlayed = true;
+                GetComponent<AudioSource>().Play();
+            }
         }
         else
         {
             gameObject.GetComponent<Collider2D>().enabled = startClosed;
             gameObject.GetComponent<SpriteRenderer>().enabled = startClosed;
+            soundPlayed = false;
         }
     }
 }
