@@ -84,6 +84,12 @@ public class Player2Movement : MonoBehaviour
             rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             jumpAudio.Play();
         }
+
+        // cap y-velocity
+        if (GetComponent<Rigidbody2D>().velocity.y > 8)
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 8);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
