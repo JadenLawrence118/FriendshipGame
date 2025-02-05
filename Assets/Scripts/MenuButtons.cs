@@ -28,6 +28,7 @@ public class MenuButtons : MonoBehaviour
     {
         GameObject.Find("PauseMenu").SetActive(false);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<Globals>().paused = false;
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Globals>().resumeClip.Play();
         Time.timeScale = 1.0f;
     }
     public void ResetPuzzle()

@@ -9,6 +9,10 @@ public class Globals : MonoBehaviour
     public bool paused = false;
 
     private static Globals self;
+
+    public AudioSource pauseClip;
+    public AudioSource resumeClip;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);

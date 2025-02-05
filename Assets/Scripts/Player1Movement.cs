@@ -78,12 +78,14 @@ public class Player1Movement : MonoBehaviour
             {
                 Time.timeScale = 1.0f;
                 globals.paused = false;
+                globals.resumeClip.Play();
                 pauseMenu.SetActive(false);
             }
             else
             {
                 Time.timeScale = 0f;
                 globals.paused = true;
+                globals.pauseClip.Play();
                 pauseMenu.SetActive(true);
             }
         }
