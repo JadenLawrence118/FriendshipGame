@@ -20,6 +20,8 @@ public class Players : MonoBehaviour
 
     [SerializeField] Vector2 respawnOffset;
 
+    [SerializeField] AudioSource damageClip;
+
 
     private void Awake()
     {
@@ -67,8 +69,8 @@ public class Players : MonoBehaviour
             {
                 GetComponent<Player1Movement>().stunned = true;
             }
-            GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-knockbackX + (knockbackX * 2 * Convert.ToInt32(gameObject.GetComponent<SpriteRenderer>().flipX)), knockbackY), ForceMode2D.Impulse);
+            damageClip.Play();
         }
     }
 }
