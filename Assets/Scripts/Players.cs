@@ -16,6 +16,8 @@ public class Players : MonoBehaviour
     public float knockbackX = 5;
     public float knockbackY = 0;
 
+    [SerializeField] float yVelocityCap = 8;
+
     [SerializeField] Vector2 respawnOffset;
 
 
@@ -26,6 +28,15 @@ public class Players : MonoBehaviour
         if (globals.spawnPos != new Vector2(0, 0))
         {
             transform.position = new Vector2(globals.spawnPos.x + respawnOffset.x, globals.spawnPos.y + respawnOffset.y);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // cap y-velocity
+        if (GetComponent<Rigidbody2D>().velocity.y > yVelocityCap)
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, yVelocityCap);
         }
     }
 
