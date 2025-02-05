@@ -16,6 +16,8 @@ public class Players : MonoBehaviour
     public float knockbackX = 5;
     public float knockbackY = 0;
 
+    [SerializeField] Vector2 respawnOffset;
+
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class Players : MonoBehaviour
         
         if (globals.spawnPos != new Vector2(0, 0))
         {
-            transform.position = globals.spawnPos;
+            transform.position = new Vector2(globals.spawnPos.x + respawnOffset.x, globals.spawnPos.y + respawnOffset.y);
         }
     }
 
