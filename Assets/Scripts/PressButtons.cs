@@ -28,6 +28,7 @@ public class PressButtons : MonoBehaviour
             if (pressing <= 1 && !used)
             {
                 GetComponent<SpriteRenderer>().sprite = downSprite;
+                GetComponent<AudioSource>().Play();
 
                 // increments the interactable's activated variable
                 for (int i = 0; i < interactables.Length; i++)

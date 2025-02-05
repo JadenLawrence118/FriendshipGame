@@ -20,6 +20,7 @@ public class HoldButtons : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GetComponent<SpriteRenderer>().sprite = downSprite;
+        GetComponent<AudioSource>().Play();
         if (!collision.isTrigger)
         {
             pressing++;
