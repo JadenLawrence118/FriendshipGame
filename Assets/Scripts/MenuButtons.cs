@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
+    [SerializeField] private Color32 hoverColour;
+    [SerializeField] private Color32 startColour;
     public void Play()
     {
         SceneManager.LoadScene(3);
@@ -35,5 +37,13 @@ public class MenuButtons : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(3);
+    }
+    public void colourChange()
+    {
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = hoverColour;
+    }
+    public void colourRevert()
+    {
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = startColour;
     }
 }

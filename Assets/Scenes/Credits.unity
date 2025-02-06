@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.8784314
       objectReference: {fileID: 0}
+    - target: {fileID: 6282788732279739997, guid: 5659c40ea122f7f4592cd8d84f98f207, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8918439764970392190, guid: 5659c40ea122f7f4592cd8d84f98f207, type: 3}
       propertyPath: m_text
       value: Back
@@ -710,7 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9686118, g: 0.8537736, b: 1, a: 1}
+  m_Color: {r: 0.98039216, g: 0.7607843, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
