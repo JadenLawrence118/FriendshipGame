@@ -11,6 +11,10 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] private Color32 startColour;
     public void Play()
     {
+        SceneManager.LoadScene(6);
+    }
+    public void LoadGame()
+    {
         SceneManager.LoadScene(3);
     }
     public void LoadInstr()
