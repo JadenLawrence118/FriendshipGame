@@ -12,7 +12,6 @@ public class ActivateParticles : MonoBehaviour
         {
             particleSystems.Add(transform.GetChild(i).gameObject);
         }
-        print(particleSystems.Count);
     }
 
     // Update is called once per frame

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Globals : MonoBehaviour
 {
+    [SerializeField] private bool destroyOnLoad = false;
+
     public Vector2 spawnPos;
     public bool paused = false;
 
@@ -15,7 +17,10 @@ public class Globals : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (!destroyOnLoad)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
 
         if (self == null)
         {

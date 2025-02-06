@@ -12,5 +12,6 @@ public class SoloCamTrigger : MonoBehaviour
     {
         TransitionFrom.Priority = 0;
         TransitionTo.Priority = 1;
+        collision.gameObject.SetActive(false);
     }
 }
