@@ -8,11 +8,15 @@ public class TimedDoors : MonoBehaviour
 
     [SerializeField] float closeSpeed = 5.0f;
 
-    public float targetPos;
+    private float targetPos;
 
-    public float startPos;
+    private float startPos;
 
     private bool closedDown = true;
+
+    private bool canMove = true;
+
+    [SerializeField] private GameObject[] stopCollisions;
 
     private void Awake()
     {
@@ -40,59 +44,83 @@ public class TimedDoors : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (gameObject.GetComponent<Interactables>().activated >= gameObject.GetComponent<Interactables>().activeNeeded)
+        if (canMove) 
         {
-            if (closedDown)
+            if (gameObject.GetComponent<Interactables>().activated >= gameObject.GetComponent<Interactables>().activeNeeded)
             {
-                if (transform.position.y < targetPos)
+                if (closedDown)
                 {
-                    transform.position = new Vector2(transform.position.x, transform.position.y + closeSpeed * Time.deltaTime);
-                    moving = true;
+                    if (transform.position.y < targetPos)
+                    {
+                        transform.position = new Vector2(transform.position.x, transform.position.y + closeSpeed * Time.deltaTime);
+                        moving = true;
+                    }
+                    else
+                    {
+                        moving = false;
+                    }
                 }
                 else
                 {
-                    moving = false;
+                    if (transform.position.y > targetPos)
+                    {
+                        transform.position = new Vector2(transform.position.x, transform.position.y - closeSpeed * Time.deltaTime);
+                        moving = true;
+                    }
+                    else
+                    {
+                        moving = false;
+                    }
                 }
             }
             else
             {
-                if (transform.position.y > targetPos)
+                if (closedDown)
                 {
-                    transform.position = new Vector2(transform.position.x, transform.position.y - closeSpeed * Time.deltaTime);
-                    moving = true;
+                    if (transform.position.y > startPos)
+                    {
+
+                        transform.position = new Vector2(transform.position.x, transform.position.y - closeSpeed * Time.deltaTime);
+                        moving = true;
+                    }
+                    else
+                    {
+                        moving = false;
+                    }
                 }
                 else
                 {
-                    moving = false;
+                    if (transform.position.y < startPos)
+                    {
+                        transform.position = new Vector2(transform.position.x, transform.position.y + closeSpeed * Time.deltaTime);
+                        moving = true;
+                    }
+                    else
+                    {
+                        moving = false;
+                    }
                 }
             }
         }
-        else
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        for (int i = 0; i < stopCollisions.Length; i++)
         {
-            if (closedDown)
+            if (collision.gameObject == stopCollisions[i])
             {
-                if (transform.position.y > startPos)
-                {
-
-                    transform.position = new Vector2(transform.position.x, transform.position.y - closeSpeed * Time.deltaTime);
-                    moving = true;
-                }
-                else
-                {
-                    moving = false;
-                }
+                canMove = false;
             }
-            else
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        for (int i = 0; i < stopCollisions.Length; i++)
+        {
+            if (collision.gameObject == stopCollisions[i])
             {
-                if (transform.position.y < startPos)
-                {
-                    transform.position = new Vector2(transform.position.x, transform.position.y + closeSpeed * Time.deltaTime);
-                    moving = true;
-                }
-                else
-                {
-                    moving = false;
-                }
+                canMove = true;
             }
         }
     }
