@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8638424010309290215}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,8 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeSpeed: 5
-  targetPos: 0
-  startPos: 0
+  openSpeed: 5
   stopCollisions: []
 --- !u!61 &8638424010309290215
 BoxCollider2D:
@@ -347,7 +346,7 @@ GameObject:
   - component: {fileID: 6955150941319432438}
   m_Layer: 0
   m_Name: TimedDoor
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

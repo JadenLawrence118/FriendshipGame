@@ -8,6 +8,8 @@ public class TimedDoors : MonoBehaviour
 
     [SerializeField] float closeSpeed = 5.0f;
 
+    [SerializeField] float openSpeed = 5.0f;
+
     private float targetPos;
 
     private float startPos;
@@ -52,7 +54,7 @@ public class TimedDoors : MonoBehaviour
                 {
                     if (transform.position.y < targetPos)
                     {
-                        transform.position = new Vector2(transform.position.x, transform.position.y + closeSpeed * Time.deltaTime);
+                        transform.position = new Vector2(transform.position.x, transform.position.y + openSpeed * Time.deltaTime);
                         moving = true;
                     }
                     else
@@ -64,7 +66,7 @@ public class TimedDoors : MonoBehaviour
                 {
                     if (transform.position.y > targetPos)
                     {
-                        transform.position = new Vector2(transform.position.x, transform.position.y - closeSpeed * Time.deltaTime);
+                        transform.position = new Vector2(transform.position.x, transform.position.y - openSpeed * Time.deltaTime);
                         moving = true;
                     }
                     else
