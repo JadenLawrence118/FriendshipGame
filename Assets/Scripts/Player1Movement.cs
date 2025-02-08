@@ -110,6 +110,7 @@ public class Player1Movement : MonoBehaviour
 
         if (grounded && jumpInput > 0)
         {
+
             rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             jumpAudio.Play();
         }

@@ -28,6 +28,7 @@ public class CutsceneLaunch : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(launchDelay);
         GetComponent<Rigidbody2D>().AddForce(launchStrength, ForceMode2D.Impulse);
+        GetComponent<CutsceneBehaviour>().enabled = false;
         launchSound.Play();
     }
 }
