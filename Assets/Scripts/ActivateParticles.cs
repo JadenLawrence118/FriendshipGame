@@ -36,4 +36,9 @@ public class ActivateParticles : MonoBehaviour
             }
         }
     }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -10,6 +10,10 @@ public class CutsceneBehaviour : MonoBehaviour
 
     float lastXPos;
 
+    private bool shouldMove = true;
+
+    [SerializeField] private float jumpHeight = 5.0f;
+
     [SerializeField] AudioSource footstepsAudio;
 
     [SerializeField] AudioSource jumpAudio;
@@ -34,6 +38,7 @@ public class CutsceneBehaviour : MonoBehaviour
         else if (lastXPos > transform.position.x)
         {
             horizontalMovement = -1;
+
         }
         else
         {
@@ -41,7 +46,7 @@ public class CutsceneBehaviour : MonoBehaviour
         }
 
         // animations
-        if (horizontalMovement != 0)
+        if (shouldMove && horizontalMovement != 0)
         {
             animator.SetBool("moving", true);
 
@@ -70,6 +75,8 @@ public class CutsceneBehaviour : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
+
+        lastXPos = transform.position.x;
     }
 
     private void FixedUpdate()
@@ -94,5 +101,16 @@ public class CutsceneBehaviour : MonoBehaviour
             animator.SetBool("grounded", false);
             grounded = false;
         }
+    }
+
+    public void Jump()
+    {
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+        jumpAudio.Play();
+    }
+
+    public void SetShouldMove(bool move)
+    {
+        shouldMove = move;
     }
 }
