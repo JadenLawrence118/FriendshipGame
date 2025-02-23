@@ -138062,6 +138062,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8253089544407458149, guid: 0996388f17974fd418b138ed859a646f, type: 3}
+      propertyPath: sceneNo
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253089544407458149, guid: 0996388f17974fd418b138ed859a646f, type: 3}
       propertyPath: targetCollisions.Array.data[0]
       value: 
       objectReference: {fileID: 236122095}
