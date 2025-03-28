@@ -264,7 +264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -171}
+  m_AnchoredPosition: {x: 0, y: -81}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909517376
@@ -848,7 +848,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -331}
+  m_AnchoredPosition: {x: 0, y: -207}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911002160
@@ -882,10 +882,36 @@ MonoBehaviour:
     (https://aamatniekss.itch.io/free-pixelart-tileset-cute-forest)
 
 
-    Sound
-    Effects - leohpaz
+    Player
+    Damage Sound Effect - fotoshop
+
+    (https://freesound.org/people/fotoshop/sounds/47356/)
+
+
+    Gameplay
+    Music - kjartan_abel
+
+    (https://freesound.org/people/kjartan_abel/sounds/647212/)
+    (remixed for loop by Jaden Lawrence)
+
+
+    Menu music - FoolBoyMedia
+
+    (https://freesound.org/people/FoolBoyMedia/sounds/349676/)
+
+
+    All
+    Other Sound Effects - leohpaz
 
     (https://leohpaz.itch.io/rpg-essentials-sfx-free)
+
+
+    Treeline
+    image - https://stock.adobe.com/search?k=forest+tree+line&asset_id=170818693
+
+
+    Cozy
+    home background - https://www.pinterest.com/pin/pixel-art-cozy-game-room--1033294708250300604/
 
 
     Everything
@@ -916,8 +942,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -952,7 +978,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -712.8839, y: 0, z: -780.02563, w: -598.14856}
+  m_margin: {x: -712.8839, y: 0, z: -780.02563, w: -783.42004}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
