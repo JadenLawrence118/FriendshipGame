@@ -30,6 +30,10 @@ public class MenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene(5);
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void Resume()
     {
         GameObject.Find("PauseMenu").SetActive(false);
